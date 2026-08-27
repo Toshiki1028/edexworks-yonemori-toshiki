@@ -2,3 +2,39 @@
 
 .scroll-fade-in{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}.scroll-fade-in.is-visible{opacity:1;transform:translateY(0)}
 @media (prefers-reduced-motion:reduce){.scroll-fade-in{opacity:1;transform:none;transition:none}}
+
+@media (max-width:767px){
+  body{min-width:0;overflow-x:hidden;font-size:14px}
+  .site-header{height:88px;padding:0 16px}
+  .brand{font-size:18px;letter-spacing:-.4px}
+  .main-nav{gap:10px;font-size:10px}
+  .main-nav .contact-link{width:78px;height:34px;margin-left:0}
+  .hero{height:540px;background-position:center top}
+  .hero-inner{top:218px;padding:0 20px}
+  .hero h1{font-size:38px;line-height:1.15}
+  .hero p{margin-top:22px;font-size:12px;line-height:1.7}
+  .section{width:auto;margin:0}
+  .section-heading h2,.about .section-heading h2{font-size:38px}
+  .section-heading p{margin-top:6px}
+  .service{height:auto;padding:90px 20px 88px}
+  .service-grid{grid-template-columns:1fr;gap:56px;margin-top:48px}
+  .service-card p{max-width:286px;width:100%}
+  .works{height:auto;padding:76px 0 90px}
+  .works-grid{display:flex;gap:16px;width:100%;margin:44px 0 0;padding:0 20px 16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .works-grid::-webkit-scrollbar{display:none}
+  .work-card{flex:0 0 calc(100vw - 40px);scroll-snap-align:start}
+  .work-card img{width:100%;height:auto;aspect-ratio:1;object-fit:cover}
+  .work-card h3{white-space:normal}
+  .works-dots{display:flex;justify-content:center;gap:8px;margin-top:22px}
+  .works-dot{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:#c8c8c8;cursor:pointer}
+  .works-dot[aria-current="true"]{background:#0074b9;transform:scale(1.25)}
+  .view-more{margin-top:40px}
+  .about{height:auto}
+  .about-inner{width:auto;padding:76px 20px 84px}
+  .about-content{grid-template-columns:1fr;gap:30px;margin-top:46px}
+  .profile-image{width:100%;max-width:280px;height:auto;aspect-ratio:240 / 176;margin:0 auto}
+  .profile-image img{width:100%;height:100%}
+  .profile-copy h3{font-size:24px}
+  .profile-copy p{width:auto;line-height:1.8}
+  footer{height:40px;padding:0 16px}
+}
