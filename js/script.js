@@ -1,29 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('main > section.scroll-fade-in');
 
-  if (!sections.length) return;
+  if (sections.length) {
+    if (
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      !('IntersectionObserver' in window)
+    ) {
+      sections.forEach((section) => section.classList.add('is-visible'));
+    } else {
+      const sectionObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
 
-  if (
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-    !('IntersectionObserver' in window)
-  ) {
-    sections.forEach((section) => section.classList.add('is-visible'));
-    return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      sections.forEach((section) => sectionObserver.observe(section));
+    }
   }
-
-  const sectionObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.15 }
-  );
-
-  sections.forEach((section) => sectionObserver.observe(section));
 
   const worksGrid = document.querySelector('.works-grid');
   const workCards = worksGrid?.querySelectorAll('.work-card');
@@ -61,16 +60,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  const cardObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
+  if ('IntersectionObserver' in window) {
+    const cardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
 
-        updateActiveDot(Array.from(workCards).indexOf(entry.target));
-      });
-    },
-    { root: worksGrid, threshold: 0.6 }
-  );
+          updateActiveDot(Array.from(workCards).indexOf(entry.target));
+        });
+      },
+      { root: worksGrid, threshold: 0.6 }
+    );
 
-  workCards.forEach((card) => cardObserver.observe(card));
+    workCards.forEach((card) => cardObserver.observe(card));
+  }
 });
