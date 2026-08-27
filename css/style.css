@@ -2,6 +2,7 @@
 
 .scroll-fade-in{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}.scroll-fade-in.is-visible{opacity:1;transform:translateY(0)}.works-dots{display:none}
 @media (prefers-reduced-motion:reduce){.scroll-fade-in{opacity:1;transform:none;transition:none}}
+.service-card p{text-align:center}
 
 @media (max-width:767px){
   body{min-width:0;overflow-x:hidden;font-size:14px}
