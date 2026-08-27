@@ -40,3 +40,8 @@
   .profile-copy p{width:auto;line-height:1.8}
   footer{height:40px;padding:0 16px}
 }
+
+.icon-circle{width:188px;height:188px;border-radius:0;background:transparent;overflow:visible}
+.service-card:nth-child(1) .icon-circle img{width:184px}
+.service-card:nth-child(2) .icon-circle img{width:188px}
+.service-card:nth-child(3) .icon-circle img{width:176px}
